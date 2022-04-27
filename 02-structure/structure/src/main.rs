@@ -1,3 +1,4 @@
+
 struct Adder{
     number: i32
 }
@@ -36,18 +37,31 @@ fn add_to_vector(vec: &mut Vec<i32>, value: i32){
 
 fn main() {
 
+    for i in 0..200{
+        match i as u8 {
+            0 => println!("MAGIC"),
+            1..=3 => println!("SWAG"),
+            4..=255 => println!("WILL IT?"),
+        }
+    }
+
+    let mut v = [2;10];
+    v[1] = 5;
+    println!("{}", v[1]);
+    println!("{}", v[2]);
+
     let mut v = vec![1,2,3,4];
     add_to_vector(&mut v, 12);
     println!("{}", sum_of_vector(&v));
     println!("{}", sum_of_vector(&v));
     
-    /*
+    
     let adder = Adder::new(5);
     println!("{}", adder.add_3());
     println!("{}", adder.add_5());
 
     println!("{}",add_3(7));
-
+/*
     let a = 5;
     let b = 3;
     if a > b{
