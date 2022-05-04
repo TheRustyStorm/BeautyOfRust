@@ -1,3 +1,15 @@
+#[derive(Debug)]
+struct Geld{
+    amount: u32,
+    kleingeld: u32,
+    cash: Vec<u32>,
+}
+
+impl Geld{
+    fn new(amount: u32, kleingeld: u32) -> Geld{
+        Geld{amount: amount, kleingeld: kleingeld, cash: vec![0,1,23]}
+    }
+}
 
 #[derive(Debug)]
 struct Gun{
@@ -57,7 +69,7 @@ impl Meower{
 
 struct Cat{
     pooper: Pooper,
-    meower: Meower
+    meower: Meower,
 }
 
 impl Cat{
@@ -67,6 +79,8 @@ impl Cat{
 }
 
 fn main() {
+
+
     let cat = Cat::new();
     cat.pooper.poop();
     cat.meower.meow();    
