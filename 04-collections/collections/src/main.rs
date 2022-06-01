@@ -1,5 +1,6 @@
 use std::collections::HashMap;
 
+
 fn evil_vector(){
     let mut evil_vec: Vec<String> = Vec::new();
     evil_vec.push(String::from("abc"));
@@ -51,10 +52,19 @@ fn hashmap_example(){
     map.insert("BLAU", 140);
 
     if map.contains_key("ROT"){
-        if let Some(points) = map.get_mut(&"ROT"){
+        if let Some(points) = map.get_mut("ROT"){
             println!("{points}");
             *points += 10;
             println!("{points}");
+        }
+
+        match map.get_mut("ROT"){
+            Some(points) => {
+                println!("{points}");
+                *points += 10;
+                println!("{points}");
+            },
+            None => {}
         }
     }
 
@@ -87,9 +97,34 @@ fn string_example(){
     
 }
 
+fn skipstuff(){
+    let mut x = "abcdöefgh";
+
+    println!("{}", x.chars().nth(4).unwrap());
+    for zeichen in x.chars(){
+        println!("{zeichen}");
+    }
+}
+
+fn borrow_vec(){
+    let v = vec![1,2,3,4,5];
+    let even_numbers: Vec<_> = v.iter()
+        .filter(|abc| *abc % 2 == 0)
+        .map(|x| x+2)
+        .collect();
+    println!("{:?}",even_numbers);
+
+}
+
+fn exercise(){
+
+}
+
 fn main() {
-    
-string_example();
+    borrow_vec();
+//    skipstuff();
+//    vecborrow();
+//    string_example();
 //    hashmap_example();
 //    safe_unsafe_get();
 //    safe_vector();
